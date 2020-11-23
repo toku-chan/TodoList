@@ -1,13 +1,5 @@
-/**
- * TODO
- * React Hooks化
- * 現状Reduxとの共存方法がわからないので、クラスコンポーネントで記載することにした。
- * 共存可能かどうかわかってから、Hooks化の対応を行う
- */
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addMemo } from './Store.jsx'
 
 class AddForm extends Component {
     constructor(props) {
@@ -27,7 +19,7 @@ class AddForm extends Component {
 
     doAction(e) {
         e.preventDefault()
-        let action = addMemo(this.state.message)
+        let action = {type: 'ADD', message: this.state.message}
         this.props.dispatch(action)
         this.setState({
             message: ''
@@ -44,4 +36,4 @@ class AddForm extends Component {
     }
 }
 
-export default connect((state) => state)(AddForm)
+export default connect()(AddForm)
