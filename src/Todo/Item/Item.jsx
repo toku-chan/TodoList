@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+
+// TODO : cssファイルで読み込まないように対応する
 import Modal from './Modal.jsx'
 
 class Item extends Component {
@@ -8,18 +9,19 @@ class Item extends Component {
         this.doAction = this.doAction.bind(this)
     }
 
-    doAction() {
-        console.log(this.props.num)
+    doAction(e) {
+        let modal = e.target.nextSibling
+        modal.classList.add('show-modal-area')
     }
 
     render() {
         return (
-            <li onClick={this.doAction} >
-                <div>{this.props.msg}</div>
-                <Modal todo={this.props.msg} index={this.props.num}/>
+            <li>
+                <div onClick={this.doAction}>{this.props.msg}</div>
+                <Modal todo={this.props.msg} index={this.props.num} />
             </li>
         )
     }
 }
 
-export default connect()(Item)
+export default Item
