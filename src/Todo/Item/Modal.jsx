@@ -10,9 +10,10 @@ class Modal extends Component {
 
     closeModal(e) {
         const area = e.target
+        const showModalClass = document.querySelector('.show-modal-area')
 
-        if (area.classList.contains('show-modal-area')) {
-            area.classList.remove('show-modal-area')
+        if (area.classList.contains('show-modal-area') || area.classList.contains('close')) {
+            showModalClass.classList.remove('show-modal-area')
         }
     }
 
@@ -22,6 +23,9 @@ class Modal extends Component {
                 <div className="modal">
                     <p>{this.props.todo}</p>
                     <DeleteBtn index={this.props.index} />
+                    <div className="close-btn-area close">
+                        <div className="close-btn close"></div>
+                    </div>
                 </div>
             </div>
         )
