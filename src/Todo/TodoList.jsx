@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import DeleteBtn from './DeleteBtn.jsx'
+import Item from './Item/Item.jsx'
 
-// ここでは、addFormで取得したTODOのリスト内容を追加していく
 class TodoList extends Component {
 
     render() {
         let Todo = this.props.data.map((value, index) => (
-            <li key={index}>
-                <div>{value.message}</div>
-                <DeleteBtn index={index} />
-            </li>
+            <Item key={index} msg={value.message} num={index} />
         ))
 
         return (
