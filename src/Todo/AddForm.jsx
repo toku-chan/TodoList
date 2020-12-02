@@ -11,6 +11,21 @@ class AddForm extends Component {
         this.doAction = this.doAction.bind(this)
     }
 
+    form = {
+        width: '360px',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between'
+    }
+
+    input = {
+        width: '100vw',
+        marginRight: '16px',
+        paddingBottom: '4px',
+        borderBottom: '1px solid #333',
+        fontSize: '12pt'
+    }
+
     doChange(e) {
         this.setState({
             message: e.target.value
@@ -28,8 +43,8 @@ class AddForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.doAction}>
-                <input type="text" onChange={this.doChange} value={this.state.message} required />
+            <form onSubmit={this.doAction} style={this.form}>
+                <input type="text" onChange={this.doChange} value={this.state.message} style={this.input} required />
                 <input type="submit" value="ADD" />
             </form>
         )

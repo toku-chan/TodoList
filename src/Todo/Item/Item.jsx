@@ -9,6 +9,14 @@ class Item extends Component {
         this.doAction = this.doAction.bind(this)
     }
 
+    li = {
+        paddingTop: '16px'
+    }
+
+    todo = {
+        fontSize: '12pt'
+    }
+
     doAction(e) {
         let modal = e.target.nextSibling
         modal.classList.add('show-modal-area')
@@ -16,8 +24,8 @@ class Item extends Component {
 
     render() {
         return (
-            <li>
-                <div onClick={this.doAction}>{this.props.msg}</div>
+            <li style={this.li}>
+                <div onClick={this.doAction} style={this.todo}>{this.props.msg}</div>
                 <Modal todo={this.props.msg} index={this.props.num} />
             </li>
         )
