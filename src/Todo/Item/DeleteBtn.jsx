@@ -7,6 +7,18 @@ class DeleteBtn extends Component {
         this.doAction = this.doAction.bind(this)
     }
 
+    area = {
+        position: 'relative',
+        width: '560px',
+        height: '40px'
+    }
+
+    button = {
+        position: 'absolute',
+        bottom: '0',
+        right: '0'
+    }
+
     doAction() {
         let index = this.props.index
         let action = {type: 'DELETE', index: index}
@@ -15,7 +27,9 @@ class DeleteBtn extends Component {
 
     render() {
         return(
-            <button onClick={this.doAction}>DELETE</button>
+            <div className="delete-btn-area" style={this.area}>
+                <button className="delete-btn switchingFlag" onClick={this.doAction} style={this.button}>DELETE</button>
+            </div>
         )
     }
 }
